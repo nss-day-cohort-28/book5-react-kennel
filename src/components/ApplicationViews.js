@@ -4,6 +4,7 @@ import AnimalList from './animal/AnimalList'
 import LocationList from './location/LocationList'
 import EmployeeList from './employee/EmployeeList'
 import OwnerList from './owner/OwnerList'
+import AnimalDetail from './animal/AnimalDetail'
 
 import AnimalManager from "../modules/AnimalManager"
 
@@ -41,17 +42,24 @@ class ApplicationViews extends Component {
     .then(() => this.setState(newState))
   }
 
-  deleteAnimal = id => {
-    return fetch(`http://localhost:5002/animals/${id}`, {
-        method: "DELETE"
-      })
-      .then(e => e.json())
-      .then(() => fetch(`http://localhost:5002/animals`))
-      .then(e => e.json())
-      .then(animals => this.setState({
-        animals: animals
-      }))
-  }
+  // Pre chapter 5 stretch goal delete
+  // deleteAnimal = id => {
+  //   return fetch(`http://localhost:5002/animals/${id}`, {
+  //       method: "DELETE"
+  //     })
+  //     .then(e => e.json())
+  //     .then(() => fetch(`http://localhost:5002/animals`))
+  //     .then(e => e.json())
+  //     .then(animals => this.setState({
+  //       animals: animals
+  //     }))
+  // }
+
+  // Chapter 5 stretch goal delete
+  deleteAnimal = id => AnimalManager.removeAndList(id)
+  .then(animals => this.setState({
+    animals: animals
+  }))
 
   render() {
     return (
@@ -59,7 +67,7 @@ class ApplicationViews extends Component {
         <Route exact path="/" render={(props) => {
           return <LocationList locations={this.state.locations} />
         }} />
-        <Route path="/animals" render={(props) => {
+        <Route exact path="/animals" render={(props) => {
           return (
             <AnimalList
               animals = {this.state.animals}
@@ -74,6 +82,9 @@ class ApplicationViews extends Component {
         }} />
         <Route exact path="/owners" render={(props) => {
           return <OwnerList owners={this.state.owners} />
+        }} />
+        <Route path="/animals/:animalId(\d+)" render={(props) => {
+          return <AnimalDetail {...props} deleteAnimal={this.deleteAnimal} animals={this.state.animals} />
         }} />
       </React.Fragment>
     )

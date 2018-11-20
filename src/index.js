@@ -9,4 +9,5 @@ import './index.css';
 ReactDOM.render(
   <Router>
     <Kennel />
-  </Router>, document.getElementById('root'));
+  </Router>, document.getElementById('root')
+);
