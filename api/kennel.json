@@ -1,0 +1,107 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Jessica Younker"
+    },
+    {
+      "id": 2,
+      "name": "Jordan Nelson"
+    },
+    {
+      "id": 3,
+      "name": "Zoe LeBlanc"
+    },
+    {
+      "id": 4,
+      "name": "Blaise Roberts"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Nashville North",
+      "address": "500 Circle Way"
+    },
+    {
+      "id": 2,
+      "name": "Nashville South",
+      "address": "10101 Binary Court"
+    }
+  ],
+  "animals": [
+    {
+      "id": 1,
+      "name": "Murphis",
+      "breed": "Aussie Mix"
+    },
+    {
+      "id": 2,
+      "name": "Lucie",
+      "breed": "border bollie mix"
+    },
+    {
+      "id": 5,
+      "name": "Bartleby",
+      "breed": "who knows?"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Ryan Tambourine",
+      "phone": "555-4577"
+    },
+    {
+      "id": 2,
+      "name": "Emma Beaton",
+      "phone": "555-4567"
+    },
+    {
+      "id": 3,
+      "name": "Dani Adkins",
+      "phone": "555-4367"
+    },
+    {
+      "id": 4,
+      "name": "Adam Oswalt",
+      "phone": "555-4267"
+    },
+    {
+      "id": 5,
+      "name": "Fletcher Bangs",
+      "phone": "554-4567"
+    },
+    {
+      "id": 6,
+      "name": "Angela Lee",
+      "phone": "555-4557"
+    }
+  ],
+  "owners_animals": [
+    {
+      "animal_id": 6,
+      "owner_id": 2
+    },
+    {
+      "animal_id": 3,
+      "owner_id": 1
+    },
+    {
+      "animal_id": 2,
+      "owner_id": 3
+    },
+    {
+      "animal_id": 5,
+      "owner_id": 6
+    },
+    {
+      "animal_id": 1,
+      "owner_id": 5
+    },
+    {
+      "animal_id": 6,
+      "owner_id": 4
+    }
+  ]
+}
