@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom"
-import dog from "./DogIcon.png"
+import AnimalCard from "./AnimalCard"
 import "./Animal.css"
 
 export default class AnimalList extends Component {
@@ -31,20 +30,7 @@ export default class AnimalList extends Component {
         <article className="animals list">
           {
             this.props.animals.map( animal =>
-              <div key={animal.id} className="card">
-                <div className="card-body">
-                  <h3 className="card-title">
-                    <img src={dog} className="icon--dog" alt="dog-icon"/>
-                    Pet: {animal.name}
-                    <Link className="nav-link" to={`/animals/${animal.id}`}>Details</Link>
-                    <a
-                      href="#" onClick={() => this.props.deleteAnimal(animal.id)}
-                      className="card-link">Delete
-                    </a>
-                  </h3>
-                  Owned by: <h5>{this.animalOwner(animal.id).join(" and ")}</h5>
-                </div>
-              </div>
+              <AnimalCard key={animal.id} animal={animal} {...this.props} />
             )
           }
         </article>
