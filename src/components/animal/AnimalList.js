@@ -18,26 +18,37 @@ export default class AnimalList extends Component {
 
   render() {
     return (
-      <article className="animals list">
-        {
-          this.props.animals.map( animal =>
-            <div key={animal.id} className="card">
-              <div className="card-body">
-                <h3 className="card-title">
-                  <img src={dog} className="icon--dog" alt="dog-icon"/>
-                  Pet: {animal.name}
-                  <Link className="nav-link" to={`/animals/${animal.id}`}>Details</Link>
-                  <a
-                    href="#" onClick={() => this.props.deleteAnimal(animal.id)}
-                    className="card-link">Delete
-                  </a>
-                </h3>
-                Owned by: <h5>{this.animalOwner(animal.id).join(" and ")}</h5>
+      <React.Fragment>
+        <div className="animalButton list">
+          <button type="button"
+                  className="btn btn-success"
+                  onClick={() => {
+                      this.props.history.push("/animals/new")}
+                  }>
+              Admit Animal
+          </button>
+        </div>
+        <article className="animals list">
+          {
+            this.props.animals.map( animal =>
+              <div key={animal.id} className="card">
+                <div className="card-body">
+                  <h3 className="card-title">
+                    <img src={dog} className="icon--dog" alt="dog-icon"/>
+                    Pet: {animal.name}
+                    <Link className="nav-link" to={`/animals/${animal.id}`}>Details</Link>
+                    <a
+                      href="#" onClick={() => this.props.deleteAnimal(animal.id)}
+                      className="card-link">Delete
+                    </a>
+                  </h3>
+                  Owned by: <h5>{this.animalOwner(animal.id).join(" and ")}</h5>
+                </div>
               </div>
-            </div>
-          )
-        }
-      </article>
+            )
+          }
+        </article>
+      </React.Fragment>
     )
   }
 }

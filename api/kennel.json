@@ -41,9 +41,10 @@
       "breed": "border bollie mix"
     },
     {
-      "id": 5,
-      "name": "Bartleby",
-      "breed": "who knows?"
+      "name": "Finn",
+      "breed": "golden",
+      "employeeId": 2,
+      "id": 3
     }
   ],
   "owners": [
